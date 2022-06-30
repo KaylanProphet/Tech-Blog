@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize';)
 const sequelize = require('../config/config.js')
 
 //Define 'post'  as model
-class Post extends Model { }
+class Post extends Model { };
 
 //Creates a new model for a  Post
 Post.init({
@@ -31,13 +31,15 @@ Post.init({
             model: 'user',
             key: 'id'
         }
-    }
+    },
+
     date_created: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
         allowNull: false,
         dafaultValue: DataTypes.NOW
     },
 
+},
     //sequelize options for this model
     //Setting rules to what will happen to data you get through this model
     {
@@ -48,6 +50,6 @@ Post.init({
         modelName: 'post',
 
     }
-})
+);
 //Export this model as 'Post"
 module.exports = Post;
