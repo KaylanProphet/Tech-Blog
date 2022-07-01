@@ -2,6 +2,17 @@ const router = require('express').Router();
 const { Comment } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+//GET all comments, if it doesnt work log the error and send it back to user
+router.get('/', (req, res) => {
+  Comment.findAll()
+    .then(dbCommentData => res.json(dbCommentData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+    });
+});
+
+//POST
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
@@ -13,5 +24,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// DELETE
 
 module.exports = router;
