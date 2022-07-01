@@ -1,7 +1,7 @@
 //Utilizing/import  sequelize library
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/config.js');
+const sequelize = require('../config/connection');
 const { beforeCreate } = require('./Post.js');
 
 //Define User as a model
@@ -17,7 +17,7 @@ User.init({
     id: {
         type: DataTypes, INTEGER,
         allowNull: false,
-        primaryKey; true,
+        primaryKey: true,
         autoIncrement: true,
     },
 
@@ -47,30 +47,29 @@ User.init({
     }
 },
     //methods that run upon entry of a new record kinda like a middleman
-    hooks: {
-    async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(
-            newUserData.password,
-            10
-        );
-        return newUserData;
-    },
-
-    async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-            updatedUserData.password,
-            10
-        );
-        return updatedUserData;
-    },
-},
     {
+        hooks: {
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(
+                    newUserData.password,
+                    10
+                );
+                return newUserData;
+            },
+
+            async beforeUpdate(updatedUserData) {
+                updatedUserData.password = await bcrypt.hash(
+                    updatedUserData.password,
+                    10
+                );
+                return updatedUserData;
+            },
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
-
+        modelName: 'user',
     }
 );
 

@@ -1,6 +1,6 @@
 //Utilizing/import  sequelize library
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.js');
+const sequelize = require('../config/connection');
 
 //Define 'post'  as model
 class Post extends Model { };
@@ -11,7 +11,7 @@ Post.init({
     id: {
         type: DataTypes, INTEGER,
         allowNull: false,
-        primaryKey; true,
+        primaryKey: true,
         autoIncrement: true,
     },
 
