@@ -1,6 +1,6 @@
 //Utilizing/import  sequelize library
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.js')
+const sequelize = require('../config/config.js');
 
 //Define 'Comment' as model
 class Comment extends Model { };
