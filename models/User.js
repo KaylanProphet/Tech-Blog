@@ -49,21 +49,14 @@ User.init({
     //methods that run upon entry of a new record kinda like a middleman
     {
         hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(
-                    newUserData.password,
-                    10
-                );
-                return newUserData;
+            async beforeCreate(newUser) {
+                newUser.password = await bcrypt.hash(newUser.password, 10);
+                return newUser;
             },
-
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(
-                    updatedUserData.password,
-                    10
-                );
-                return updatedUserData;
-            },
+            async beforeUpdate(updateUser) {
+                updateUser.password = await bcrypt.hash(updateUser.password, 10);
+                return updateUser;
+            }
         },
         sequelize,
         timestamps: false,

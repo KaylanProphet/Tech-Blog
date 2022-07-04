@@ -10,26 +10,36 @@
 </head>
 
 <body class="flex-column min-100-vh">
-  <nav class="navbar">
-    <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-    </ul>
-  </nav>
   <header class="hero">
-    <h1 class="app-title"><a href="/">The Tech Blog</a></h1>
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        {{#if loggedIn}}
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </nav>
+    <h1 class="app-title">Tech-Blogginator</h1>
   </header>
-
-  <main class="col-auto">
-    {{{body}}}
+  <main>
+    {{{ body }}}
   </main>
+  </div>
 
-  <footer class="flex-row justify-center">
-    &copy; The Tech Blog Folks
-  </footer>
+  {{!-- in order to not receive an error after removing the logout button from the page, wrap the
+  <script> element with an { { #if } } helper--}}
+    { { #if loggedIn } }
+    <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
-<script src="/js/logout.js"></script>
