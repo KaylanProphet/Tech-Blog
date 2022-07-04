@@ -2,32 +2,32 @@ const { Post } = require('../models');
 
 const postData = [
     {
-        title: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        contents: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        title: "Post A",
+        contents: "Apple",
         user_id: 1
     },
 
     {
-        title: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-        contents: "BBBBBBBBBBBBBBBBBBBBBBBBBB",
+        title: "Post B",
+        contents: "Banana",
         user_id: 2
     },
 
     {
-        title: "CCCCCCCCCCCCCCCCCC",
-        contents: "CCCCCCCCCCCCCC",
+        title: "Post C",
+        contents: "Carrot",
         user_id: 3
     },
 
     {
-        title: "DDDDDDDDDDDDDDDDD",
-        contents: "DDDDDDDDDDDDDD",
+        title: "Post D",
+        contents: "Dragonfuit",
         user_id: 4
     },
 
     {
-        title: "EEEEEEEEEEEEEEEEEEE",
-        contents: "EEEEEEEEEEEEEEEEEEEE",
+        title: "Post E",
+        contents: "Eggplant",
         user_id: 5
     },
 ]
