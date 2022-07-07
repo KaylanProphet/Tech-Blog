@@ -9,7 +9,7 @@ class Post extends Model { };
 Post.init({
     //Colum definitions for the model(ID, TITLE, CONTENTS, USER_ID, dateCreated)
     id: {
-        type: DataTypes, INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
